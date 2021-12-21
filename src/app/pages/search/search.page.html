@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+
+  <ion-toolbar>
+    <ion-title>Search</ion-title>
+  </ion-toolbar>
+
+  <ion-searchbar placeholder="Buscar album"
+  (ionChange)="onSearchChange( $event )"
+  inputmode="text"
+  [debounce]="250"
+  animated
+  ></ion-searchbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let album of albumes | filtro: filtro"> 
+      <ion-label>
+        {{ album.title }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

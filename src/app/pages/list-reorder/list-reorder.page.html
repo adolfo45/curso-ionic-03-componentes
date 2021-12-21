@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button color="primary" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title color="primary">List - Reorder</ion-title>
+
+   <ion-buttons slot="end">
+     <ion-button (click)="reordenar = !reordenar">
+       Toggle
+     </ion-button>
+   </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-list>
+  <ion-reorder-group [disabled]="reordenar" 
+                    (ionItemReorder)="reordenarAutor( $event )">
+    <ion-item *ngFor="let autor of autores">
+      <label>{{ autor }}</label>
+      <ion-reorder slot="end">
+        <ion-icon name="add"></ion-icon>
+      </ion-reorder>  
+    </ion-item>
+  </ion-reorder-group>
+</ion-list>
+
+</ion-content>
